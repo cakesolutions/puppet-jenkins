@@ -1,0 +1,39 @@
+{
+  "name": "maestrodev-jenkins",
+  "version": "1.0.2",
+  "source": "http://github.com/maestrodev/puppet-jenkins",
+  "author": "maestrodev & Randall Degges",
+  "license": "Public domain and Apache Software License",
+  "summary": "A puppet module for installing Jenkins",
+  "description": "A puppet module for installing Jenkins",
+  "project_page": "http://github.com/maestrodev/puppet-jenkins",
+  "dependencies": [
+
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "Gemfile": "fccb3a6bcaf1fe3696b5b17ea7afcd9a",
+    "Gemfile.lock": "d900e047c4b45a36cb94996c31b3b6ab",
+    "Modulefile": "5942d07ac0c329f8920af3f29a77215a",
+    "README": "77b0078e3779904dc53d668b3b468ab3",
+    "Rakefile": "81bfd48841df50034edc8158e68f81e0",
+    "UNLICENSE": "7246f848faa4e9c9fc0ea91122d6e680",
+    "docs/Makefile": "0af3938480f53179627a422d28c8ebfe",
+    "docs/conf.py": "e9ca04c3946b4ea25826cebc49d88348",
+    "docs/faq.rst": "f88e815df75da164797a991f2603efed",
+    "docs/index.rst": "d57233f172bb6f235af5a08a27da95c3",
+    "docs/install.rst": "f63d0151b5447e40fc166237d3464a92",
+    "docs/use.rst": "8ddd3d415cdcf89fbab7b8def056df3b",
+    "manifests/init.pp": "27d62c78bf35540f94f2444740ccee63",
+    "manifests/plugin/install.pp": "7992b797923265365fecfe3cc7150fb1",
+    "manifests/plugin.pp": "0c6a06835be36aab77495a6ff26eee08",
+    "manifests/uninstall.pp": "80fb9e3b75ebc117b995307a415a0be1",
+    "spec/classes/init_spec.rb": "d8be0a613bdae6a4a583d204d06daa29",
+    "spec/spec_helper.rb": "3e603658ce3fe534663de4513f612f3f",
+    "templates/jenkins.erb": "296fb96f80c306446e8266be9a766a83",
+    "tests/init.pp": "7e9a2a454dd9fb21953504bfc29263c3",
+    "tests/uninstall.pp": "aaa6e255328d002549bbe232099706a9"
+  }
+}
