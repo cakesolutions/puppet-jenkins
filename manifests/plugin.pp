@@ -18,7 +18,7 @@ define jenkins::plugin($version=0) {
         ensure  => directory,
         owner   => $user,
         group   => $group,
-        require => [Package["jenkins"]]];
+        require => [Package["jenkins"]];
     }
   }
 
