@@ -18,31 +18,16 @@ define jenkins::plugin($version=0) {
         ensure  => directory,
         owner   => $user,
         group   => $group,
-        require => [Group[$group], User[$user]];
+        require => [Package["jenkins"]]];
     }
   }
-  
 
   if (!defined(File[$plugin_dir])) {
     file { $plugin_dir:
         ensure  => directory,
           owner   => $user,
           group   => $group,
-          require => [Group[$group], User[$user], File[$plugin_parent_dir]];    
-    }
-  }
-
-  if (!defined(Group[$group])) {
-    group {
-      $group :
-        ensure => present;
-    }
-  }
-
-  if (!defined(User[$user])) {
-    user {
-      $user :
-        ensure => present;
+          require => [Package["jenkins"], File[$plugin_parent_dir]];    
     }
   }
 
