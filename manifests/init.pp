@@ -13,6 +13,7 @@ class jenkins(
   $jenkins_group = 'jenkins',
   $jenkins_port = '8181',
   $jenkins_prefix = undef,
+  $jenkins_home = '/var/lib/jenkins'
   $jenkins_java_options = undef,
   $version = 'present') {
 
@@ -40,24 +41,31 @@ class jenkins(
         ensure      => $version,
         provider    => "yum",
         require     => Yumrepo["jenkins"]
-    } ->
-    file  { "/var/log/jenkins":
-      ensure => directory,
-      owner => $jenkins_user,
-      group => $jenkins_group,
-      mode => 755,
-    }->
+    }
+
+    file  { '/var/log/jenkins':
+      ensure  => directory,
+      owner   => $jenkins_user,
+      group   => $jenkins_group,
+      mode    => 755,
+      require => [ Package["jenkins"] ],
+    }
+
     file { '/var/cache/jenkins':
+      ensure  => directory,
+      owner   => $jenkins_user,
+      group   => $jenkins_group,
+      mode    => 755,
+      require => [ Package["jenkins"] ],
+    }
+
+    if (!defined(File["$jenkins_home"])) {
+      file { "$jenkins_home":
         ensure => directory,
         owner => $jenkins_user,
         group => $jenkins_group,
         mode  => 755,
-    } ->
-    file { '/var/lib/jenkins':
-            ensure => directory,
-            owner => $jenkins_user,
-            group => $jenkins_group,
-            mode  => 755,
+      }
     }
 
     if ! defined(Package['fontconfig'])       { package { 'fontconfig':       ensure => installed } }
@@ -75,7 +83,7 @@ class jenkins(
         mode        => 755,
         content     => template("jenkins/jenkins.erb"),
         require    => Package["jenkins"],
-        notify      => Service["jenkins"]
+        notify      => Service["jenkins"],
     } 
 
     service { "jenkins":
@@ -83,7 +91,7 @@ class jenkins(
         ensure      => running,
         hasrestart  => true,
         hasstatus   => true,
-        require     => [Package["jenkins"],File["/etc/sysconfig/jenkins"]]
+        require     => [ Package["jenkins"], File["/etc/sysconfig/jenkins"] ],
     }
 
 }
