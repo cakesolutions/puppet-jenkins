@@ -13,7 +13,7 @@ class jenkins(
   $jenkins_group = 'jenkins',
   $jenkins_port = '8181',
   $jenkins_prefix = undef,
-  $jenkins_home = '/var/lib/jenkins'
+  $jenkins_home = '/var/lib/jenkins',
   $jenkins_java_options = undef,
   $version = 'present') {
 
