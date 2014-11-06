@@ -2,7 +2,7 @@ define jenkins::plugin($version=0) {
   $user              = $jenkins::jenkins_user
   $group             = $jenkins::jenkins_group
   $plugin            = "${name}.hpi"
-  $plugin_dir        = "$jenkins::jenkins_home/plugin"
+  $plugin_dir        = "$jenkins::jenkins_home/plugins"
   $plugin_parent_dir = "$jenkins::jenkins_home"
 
   if ($version != 0) {
