@@ -28,7 +28,7 @@ JENKINS_JAVA_CMD=""
 # permissions of $JENKINS_HOME and /var/log/jenkins.
 #
 <% if has_variable?("jenkins_user") then %>
-	JENKINS_USER="<%= jenkins_user %>"
+	JENKINS_USER="<%= @jenkins_user %>"
 <% else %>
 	JENKINS_USER="jenkins"
 <% end %>		
@@ -40,7 +40,7 @@ JENKINS_JAVA_CMD=""
 # Options to pass to java when running Jenkins.
 #
 <%- if has_variable?("java_options_real") then %>
-JENKINS_JAVA_OPTIONS="$JENKINS_JAVA_OPTIONS -Djava.awt.headless=true -Xmx2048m -XX:MaxPermSize=512m <%= java_options_real %>"
+JENKINS_JAVA_OPTIONS="$JENKINS_JAVA_OPTIONS -Djava.awt.headless=true -Xmx2048m -XX:MaxPermSize=512m <%= @java_options_real %>"
 <%- else -%>
 JENKINS_JAVA_OPTIONS="-Djava.awt.headless=true -Xmx2048m -XX:MaxPermSize=512m"
 <% end -%>
@@ -54,7 +54,7 @@ JENKINS_JAVA_OPTIONS="-Djava.awt.headless=true -Xmx2048m -XX:MaxPermSize=512m"
 #
 
 <% if has_variable?("jenkins_port") then %>
-JENKINS_PORT="<%= jenkins_port %>"
+JENKINS_PORT="<%= @jenkins_port %>"
 <% else %>
 JENKINS_PORT="8080"
 <% end %>
@@ -109,7 +109,7 @@ JENKINS_HANDLER_IDLE="20"
 # Full option list: java -jar jenkins.war --help
 #
 <% if has_variable?("prefix_real") then -%>
-JENKINS_ARGS="--prefix=<%= prefix_real %>"
+JENKINS_ARGS="--prefix=<%= @prefix_real %>"
 <% else -%>
 JENKINS_ARGS=""
 <% end -%>
