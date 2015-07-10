@@ -61,10 +61,11 @@ class jenkins(
 
     if (!defined(File["$jenkins_home"])) {
       file { "$jenkins_home":
-        ensure => directory,
-        owner => $jenkins_user,
-        group => $jenkins_group,
-        mode  => 755,
+        ensure  => directory,
+        owner   => $jenkins_user,
+        group   => $jenkins_group,
+        mode    => 755,
+        recurse => true,
       }
     }
 
