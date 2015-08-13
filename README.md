@@ -1,7 +1,9 @@
 NOTE: This is a fork to provide support for RHEL/CentOS (yum) platforms.
 
 puppet-
-```    _            _    _
+```
+#!shell
+       _            _    _
       (_) ___ _ __ | | _(_)_ __  ___
       | |/ _ \ '_ \| |/ / | '_ \/ __|
       | |  __/ | | |   <| | | | \__ \
