@@ -72,7 +72,7 @@ class jenkins(
     if ! defined(Package['fontconfig'])       { package { 'fontconfig':       ensure => installed } }
     if ! defined(Package['fontconfig-devel']) { package { 'fontconfig-devel': ensure => installed } }
 
-    if $::operatingsystem == 'CentOS' and $::operatingsystemrelease >= 6 {
+    if $::operatingsystem == 'CentOS' and $::operatingsystemmajrelease >= 6 {
       package { [ "dejavu-sans-fonts", "dejavu-sans-mono-fonts", "dejavu-serif-fonts"]: 
         ensure => installed,
       }
