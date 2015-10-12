@@ -18,6 +18,7 @@ define jenkins::plugin($version=0) {
         ensure  => directory,
         owner   => $user,
         group   => $group,
+        recurse => true,
         require => [ Package["jenkins"] ],
     }
   }
@@ -27,6 +28,7 @@ define jenkins::plugin($version=0) {
         ensure    => directory,
           owner   => $user,
           group   => $group,
+          recurse => true,
           require => [ Package["jenkins"], File[$plugin_parent_dir] ],
     }
   }
